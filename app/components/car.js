@@ -10,7 +10,7 @@ export default class Car extends Component {
       <Card>
         <CardItem onPress={() => Actions.carDetail({car: car})}>
           <Body>
-            <Text key={car.id}>{`Car Description:${car.description}\nCar Price: ${car.price}\nCar Color: ${car.color}`}</Text>
+            <Text key={car.id}>{`${car.title}\nCar Description:${car.description}\nCar Price: ${car.price}\nCar Color: ${car.color}`}</Text>
           </Body>
           <Icon name='md-information-circle' size={30} />
         </CardItem>

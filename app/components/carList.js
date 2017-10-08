@@ -13,7 +13,6 @@ class CarPage extends Component {
   }
 
   render() {
-    console.log(this.props.data.allCars)
     if (this.props.data.loading) {
       return (<Content padder>
         <Card>
@@ -57,10 +56,9 @@ class CarPage extends Component {
           />
       }>
         <Content padder>
-          {(this.props.data.allCars) && this.props.data.allCars.map(function(car) {
-            debugger
-            return <Car key={car.id} car={car}/>
-          }}
+          {(this.props.data.allCars) && this.props.data.allCars.map((car) => 
+            <Car key={car.id} car={car}/>
+          )}
         </Content>
       </ScrollView>
     )

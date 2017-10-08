@@ -1,11 +1,10 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
-import { Platform } from 'react-native';
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from 'redux-thunk';
 import {routes, userInfo} from '../reducers';
 import promiseMiddleware from 'redux-promise-middleware';
 //http://dev.apollodata.com/react/redux.html
-import { ApolloClient, createNetworkInterface, ApolloProvider } from 'react-apollo';
+import { ApolloClient, createNetworkInterface } from 'react-apollo';
 import { graphCoolUri } from '../config'
 
 const client = new ApolloClient({
@@ -38,10 +37,12 @@ export default function configureStore(initialState) {
       composeWithDevTools(
         applyMiddleware(promiseMiddleware(), thunk, client.middleware())
       ));
+    /* eslint-disable */
     if (module.hot) {
       module.hot.accept(() => {
         store.replaceReducer(require('../reducers').default);
       });
+      /* eslint-enable */
     }
   }
   return {store, client};

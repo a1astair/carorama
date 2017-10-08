@@ -1,12 +1,10 @@
-import { ActionTypes, maxNumOfMsgs } from '../config'
 import { ActionConst } from 'react-native-router-flux';
 // export const STATUS_PENDING = '_PENDING';
 // export const STATUS_FULFILLED = '_FULFILLED';
 // export const STATUS_REJECTED = '_REJECTED';
 
 const INITIAL_STATE = {
-  loginInfo: null,
-  profileObj: null
+  importantStuff: null,
 }
 
 const INITIAL_ROUTING_STATE = {
