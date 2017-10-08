@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import LoginContainer from './login-container.js';
 import HomepageContainer from './homepage-container.js';
-import JobDetail from '../components/jobDetail.js';
 import {Actions, Scene, Router, Reducer, ActionConst} from 'react-native-router-flux';
 import { connect, Provider } from 'react-redux';
 
@@ -13,9 +11,7 @@ const RouterWithRedux = connect()(Router);
 
 const scenes = Actions.create(
   <Scene key="root">
-    <Scene key="login" title="Login Page" component={LoginContainer} hideNavBar={true} panHandlers={null}/>
-    <Scene key="homepage" title="Bar Float" component={HomepageContainer} hideNavBar={true} panHandlers={null} type={ActionConst.RESET}/>
-    <Scene key="jobDetail" title="JobDetail" component={JobDetail} hideNavBar={true}/>
+    <Scene key="homepage" title="Car-orama" component={HomepageContainer} initial/>
   </Scene>
 );
 

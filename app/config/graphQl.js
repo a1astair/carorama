@@ -1,19 +1,10 @@
 import gql from 'graphql-tag'
 
-export const allJobsQuery = gql`query { allJobs { id city description, company } }`
+export const allCarsQuery = gql`query { allCars { id title description price color } }`
 
-export const userQuery = gql`
-  query user($auth0UserId: String!) {
-    User(auth0UserId: $auth0UserId) {
-      firstName,
-      lastName,
-      personal
-    }
-  }
-`
-export const createUserQuery = gql`
-  mutation createUserQuery($idToken: String!, $firstName: String!, $lastName: String!, $emailAddress: String!, $isPersonal: Boolean!){
-    createUser(authProvider: { auth0: { idToken: $idToken} }, firstName: $firstName, lastName: $lastName, emailAddress: $emailAddress, personal: $isPersonal) {
+export const createCarQuery = gql`
+  mutation createCarQuery($idToken: String!, $title: String!, $description: String!, $price: String!, $color: String!){
+    createCar(title: $title, description: $description, price: $price, color: $color) {
       id
     }
   }

@@ -7,10 +7,6 @@ class HomepageContainer extends Component {
   render() {
     return (
       <Homepage
-        logout={this.props.logout}
-        sendProfileObj={this.props.sendProfileObj}
-        loginInfo={this.props.loginInfo}
-        profileObj={this.props.profileObj}
       />
     );
   }
@@ -18,15 +14,11 @@ class HomepageContainer extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    loginInfo: state.userInfo.loginInfo,
-    profileObj: state.userInfo.profileObj,
   }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    logout: () => dispatch(logout()),
-    sendProfileObj: (obj) => dispatch(sendProfileObj(obj))
   }
 }
 

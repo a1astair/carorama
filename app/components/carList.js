@@ -3,24 +3,24 @@ import { Container, Content, Card, CardItem, Text, View, Body, Icon, Spinner, Bu
 import { ScrollView, RefreshControl } from 'react-native';
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
-import Job from './job'
-import { styles, allJobsQuery } from '../config'
+import Car from './car'
+import { styles, allCarsQuery } from '../config'
 
-class JobPage extends Component {
+class CarPage extends Component {
 
   getData = () => {
     this.props.data.refetch()
   }
 
   render() {
-
+    console.log(this.props.data.allCars)
     if (this.props.data.loading) {
       return (<Content padder>
         <Card>
           <Spinner />
           <CardItem>
             <Body>
-              <Text>Loading Jobs</Text>
+              <Text>Loading Cars</Text>
             </Body>
           </CardItem>
         </Card>
@@ -30,7 +30,6 @@ class JobPage extends Component {
      return (
        <Content padder>
          <Card>
-           {/* <Icon style={{textAlign: 'center'}} name='refresh' onPress={() => this.props.data.refetch()}/> */}
            <CardItem>
              <Body>
                <ScrollView style={styles.container} refreshControl={
@@ -40,7 +39,7 @@ class JobPage extends Component {
                    onRefresh={this.props.data.refetch}
                  />
                }>
-               <Text>Error Getting Jobs, Please try again!</Text>
+               <Text>Error Getting Cars, Please try again!</Text>
                </ScrollView>
              </Body>
            </CardItem>
@@ -54,19 +53,20 @@ class JobPage extends Component {
           <RefreshControl
             refreshing={this.props.data.networkStatus === 4}
             onRefresh={this.props.data.refetch}
+
           />
       }>
         <Content padder>
-          {/* <Icon style={{textAlign: 'center'}} name='refresh' onPress={() => this.props.data.refetch()}/> */}
-          {this.props.data.allJobs.map((job) =>
-            <Job key={job.id} job={job}/>
-          )}
+          {(this.props.data.allCars) && this.props.data.allCars.map(function(car) {
+            debugger
+            return <Car key={car.id} car={car}/>
+          }}
         </Content>
       </ScrollView>
     )
   }
 }
 
-const JobPageWithData = graphql(allJobsQuery)(JobPage)
+const CarPageWithData = graphql(allCarsQuery)(CarPage)
 
-export default JobPageWithData
+export default CarPageWithData

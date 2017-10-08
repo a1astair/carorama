@@ -1,6 +1,5 @@
 import { ActionTypes, maxNumOfMsgs } from '../config'
 import { ActionConst } from 'react-native-router-flux';
-import CookieManager from 'react-native-cookies';
 // export const STATUS_PENDING = '_PENDING';
 // export const STATUS_FULFILLED = '_FULFILLED';
 // export const STATUS_REJECTED = '_REJECTED';
@@ -30,36 +29,6 @@ export function routes(state = INITIAL_ROUTING_STATE, action = {}) {
 
 export function userInfo(state = INITIAL_STATE, action = {}) {
   switch (action.type) {
-    case ActionTypes.SET_LOGIN_INFO: {
-      return {
-        ...state,
-        loginInfo: {
-          ...action.payload
-        }
-      };
-    }
-    case ActionTypes.LOGOUT: {
-      // clear cookies
-      CookieManager.clearAll((err, res) => {
-        if (err) {
-          console.log(err)
-        }
-      });
-      return {
-        ...state,
-        loginInfo: null,
-        profileObj: null
-      };
-    }
-    case ActionTypes.PROFILE_OBJ: {
-      return {
-        ...state,
-        profileObj:  {
-          ...state.profileObj,
-          ...action.payload
-        }
-      };
-    }
     default:
       return state;
   }
