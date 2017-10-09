@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Container, Content, Card, CardItem, Text, View, Body, Icon, Spinner, Button } from 'native-base';
+import { Content, Card, CardItem, Text, Body, Spinner} from 'native-base';
 import { ScrollView, RefreshControl } from 'react-native';
 import { graphql } from 'react-apollo'
-import gql from 'graphql-tag'
 import Car from './car'
 import { styles, allCarsQuery } from '../config'
 

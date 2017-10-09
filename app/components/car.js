@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Card, CardItem, Text, Body, Icon } from 'native-base'
+import { Card, CardItem, Text, Body } from 'native-base'
+import { Icon } from 'react-native-elements'
 import { Actions } from 'react-native-router-flux'
 
 export default class Car extends Component {
@@ -8,11 +9,12 @@ export default class Car extends Component {
 
     return (
       <Card>
-        <CardItem onPress={() => Actions.carDetail({car: car})}>
+        <CardItem>
           <Body>
-            <Text key={car.id}>{`${car.title}\nCar Description:${car.description}\nCar Price: ${car.price}\nCar Color: ${car.color}`}</Text>
+            <Text 
+              key={car.id}>{`${car.title}\nCar Description:${car.description}\nCar Price: ${car.price}\nCar Color: ${car.color}`}</Text>
           </Body>
-          <Icon name='md-information-circle' size={30} />
+          <Icon name='info' size={30} onPress={() => Actions.carDetail({car: car})} />
         </CardItem>
       </Card>
     )
