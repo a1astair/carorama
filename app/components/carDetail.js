@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Container, Header, Left, Title, Button, Icon, Content, Card, CardItem, Text, View, Body } from 'native-base';
+import { Container, Header, Left, Title, Button, Icon, Content, Card, CardItem, Text, Body } from 'native-base';
+import { View } from 'react-native'
+import { styles } from '../config'
 import { Actions } from 'react-native-router-flux';
 
 export default class CarDetail extends Component {

@@ -38,12 +38,12 @@ export default function configureStore(initialState) {
         applyMiddleware(promiseMiddleware(), thunk, client.middleware())
       ));
     /* eslint-disable */
-    if (module.hot) {
-      module.hot.accept(() => {
-        store.replaceReducer(require('../reducers').default);
-      });
+    // if (module.hot) {
+    //   module.hot.accept(() => {
+    //     store.replaceReducer(require('../reducers').default);
+    //   });
       /* eslint-enable */
-    }
+    // }
   }
   return {store, client};
 }

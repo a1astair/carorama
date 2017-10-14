@@ -15,7 +15,16 @@ export const ActionTypes = {
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
+    //'row', 'row-reverse' 
     flexDirection: 'column',
     backgroundColor: '#F5FCFF',
+  },
+  bigblue: {
+    color: 'blue',
+    fontWeight: 'bold',
+    fontSize: 30,
+  },
+  red: {
+    color: 'red',
   },
 });

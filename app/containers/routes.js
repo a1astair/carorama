@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import HomepageContainer from './homepage-container.js';
 import carDetail from '../components/carDetail.js';
+import demoPage from '../components/demoPage.js';
 import {Actions, Scene, Router, Reducer} from 'react-native-router-flux';
 import { connect} from 'react-redux';
 
@@ -9,7 +10,8 @@ import { connect} from 'react-redux';
 const scenes = Actions.create(
   <Scene key="root">
     <Scene key="homepage" title="Car-orama" component={HomepageContainer} initial/>
-    <Scene key="carDetail" title="CarDetail" component={carDetail}/>
+    <Scene key="carDetail" title="Car Details" component={carDetail} hideNavBar={true}/>
+    <Scene key="demoPage" title="Demo Page" component={demoPage} hideNavBar={true}/>
   </Scene>
 );
 

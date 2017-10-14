@@ -6,9 +6,11 @@ import Car from './car'
 import { styles, allCarsQuery } from '../config'
 
 class CarPage extends Component {
-
-  getData = () => {
-    this.props.data.refetch()
+  constructor(props) {
+    super(props);
+    this.state = {
+      sortedCars: null
+    }
   }
 
   render() {
@@ -54,10 +56,13 @@ class CarPage extends Component {
 
           />
       }>
-        <Content padder>
-          {(this.props.data.allCars) && this.props.data.allCars.map((car) => 
-            <Car key={car.id} car={car}/>
-          )}
+         <Content padder>
+           
+          {(this.props.data.allCars) && [...this.props.data.allCars]
+            .sort(((a, b) => a.title.localeCompare(b.title)))
+            .map((car) => 
+              <Car key={car.id} car={car}/>
+            )}
         </Content>
       </ScrollView>
     )

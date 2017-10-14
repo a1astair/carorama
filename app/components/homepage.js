@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import {styles} from '../config'
 import CarList from './carList'
 import CarPost from './carPost'
+import DemoPage from './demoPage'
 import { Container, Header, Tabs, Tab } from 'native-base';
 export default class Homepage extends Component {
   constructor(props) {
@@ -20,6 +21,9 @@ export default class Homepage extends Component {
               </Tab>
               <Tab heading="Post Car">
                 <CarPost />
+              </Tab>
+              <Tab heading="Demo Page">
+                <DemoPage />
               </Tab>
             </Tabs>
        </Container>
