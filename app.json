@@ -1,4 +1,7 @@
 {
-  "name": "carorama",
-  "displayName": "carorama"
+  "expo": {
+    "name": "carorama",
+    "slug": "carorama",
+    "sdkVersion": "21.0.2 "
+  }
 }
